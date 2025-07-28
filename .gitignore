@@ -1,2 +1,4 @@
+# Ignore node_modules in NestJS project
+nestjs-rest-soap-bridge/node_modules/
 # Ignore VS Code settings
 .vscode/
