@@ -1,0 +1,10 @@
+C:\Users\hafaiz\Documents\poc-SoaprestBridge\springboot-soap-users\src\main\java\com\example\users\model\User.java
+C:\Users\hafaiz\Documents\poc-SoaprestBridge\springboot-soap-users\src\main\java\com\example\users\soap\UserEndpoint.java
+C:\Users\hafaiz\Documents\poc-SoaprestBridge\springboot-soap-users\src\main\java\com\example\users\SoapUsersApplication.java
+C:\Users\hafaiz\Documents\poc-SoaprestBridge\springboot-soap-users\src\main\java\com\example\users\soap\ListUsersResponse.java
+C:\Users\hafaiz\Documents\poc-SoaprestBridge\springboot-soap-users\src\main\java\com\example\users\soap\AddUserRequest.java
+C:\Users\hafaiz\Documents\poc-SoaprestBridge\springboot-soap-users\src\main\java\com\example\users\service\UserService.java
+C:\Users\hafaiz\Documents\poc-SoaprestBridge\springboot-soap-users\src\main\java\com\example\users\soap\WebServiceConfig.java
+C:\Users\hafaiz\Documents\poc-SoaprestBridge\springboot-soap-users\src\main\java\com\example\users\repository\UserRepository.java
+C:\Users\hafaiz\Documents\poc-SoaprestBridge\springboot-soap-users\src\main\java\com\example\users\soap\AddUserResponse.java
+C:\Users\hafaiz\Documents\poc-SoaprestBridge\springboot-soap-users\src\main\java\com\example\users\soap\ListUsersRequest.java
