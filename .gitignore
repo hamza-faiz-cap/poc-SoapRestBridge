@@ -2,3 +2,6 @@
 nestjs-rest-soap-bridge/node_modules/
 # Ignore VS Code settings
 .vscode/
+# Ignore build output
+springboot-soap-users/target/
+nestjs-rest-soap-bridge/dist/
