@@ -17,22 +17,16 @@ exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const axios_1 = require("axios");
 const xml_js_1 = require("xml-js");
-const SPRING_SOAP_URL = 'http://localhost:8080/ws';
+const SPRING_SOAP_URL = 'http://localhost:8081/ws/';
 let UsersController = UsersController_1 = class UsersController {
     logger = new common_1.Logger(UsersController_1.name);
     async getAllUsers() {
         const soapEnvelope = `
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:usr="http://spring.io/guides/gs-producing-web-service">
-        <soapenv:Header/>
-        <soapenv:Body>
-          <usr:GetAllUsersRequest/>
-        </soapenv:Body>
-      </soapenv:Envelope>
-    `;
+      <soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n        <soapenv:Header/>\n        <soapenv:Body>\n          <ListUsersRequest/>\n        </soapenv:Body>\n      </soapenv:Envelope>\n    `;
         try {
             this.logger.log('Sending SOAP request to list users');
             const response = await axios_1.default.post(SPRING_SOAP_URL, soapEnvelope, {
-                headers: { 'Content-Type': 'text/xml' },
+                headers: { 'Content-Type': 'text/xml', 'SOAPAction': '' },
             });
             this.logger.debug(`SOAP response: ${response.data}`);
             const result = (0, xml_js_1.xml2js)(response.data, { compact: true });
@@ -66,20 +60,11 @@ let UsersController = UsersController_1 = class UsersController {
     }
     async addUser(user) {
         const soapEnvelope = `
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:usr="http://spring.io/guides/gs-producing-web-service">
-        <soapenv:Header/>
-        <soapenv:Body>
-          <usr:AddUserRequest>
-            <usr:name>${user.name}</usr:name>
-            <usr:email>${user.email}</usr:email>
-          </usr:AddUserRequest>
-        </soapenv:Body>
-      </soapenv:Envelope>
-    `;
+      <soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:usr=\"http://example.com/users\">\n        <soapenv:Header/>\n        <soapenv:Body>\n          <usr:AddUserRequest>\n            <usr:name>${user.name}</usr:name>\n            <usr:email>${user.email}</usr:email>\n          </usr:AddUserRequest>\n        </soapenv:Body>\n      </soapenv:Envelope>\n    `;
         try {
             this.logger.log(`Sending SOAP request to add user: ${JSON.stringify(user)}`);
             const response = await axios_1.default.post(SPRING_SOAP_URL, soapEnvelope, {
-                headers: { 'Content-Type': 'text/xml' },
+                headers: { 'Content-Type': 'text/xml', 'SOAPAction': '' },
             });
             this.logger.debug(`SOAP response: ${response.data}`);
             const result = (0, xml_js_1.xml2js)(response.data, { compact: true });
